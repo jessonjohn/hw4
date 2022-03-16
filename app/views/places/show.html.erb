@@ -3,26 +3,33 @@
 <div class="container">
 
 <% if @current_user %> 
-<h2>My Posts</h2>
+
 <div class="row">
 <% for post in @place.posts.where({user_id: @current_user.id}) %>
   <div class="col-md-4 col-sm-12">
   <h3><%= post.title %></h3>
-  <h4><%= post.posted_on %></h4>
-  <p><%= post.description %></p>
+  <h8><%= post.posted_on %></h8>
+  
 
      <% if post.uploaded_image.attached? %>
         <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
       <% else %>
         <img src="<%= post.image %>" class="img-fluid">
       <% end %>
+
+      <p><%= post.description %></p>
   </div>
 <% end %>
 </div>
 
-<p>
+<!--<p>
   <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
-</p>
+</p> -->
+
+<div class="col-sm-5 text-left">
+        <a href="/posts/new?place_id=<%= @place.id %>" class="btn btn-success">New Post</a>
+      </div>
+
 
 <p>
 
