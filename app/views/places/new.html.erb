@@ -1,7 +1,7 @@
 <h2>New Place</h2>
 
 <% if @current_user %>
-  <%= form_with model: @post do |form| %>
+  <%= form_with model: @place do |form| %>
     <div class="mb-3">
       <%= form.label "name", class: "form-label" %>
       <%= form.text_field "name", class: "form-control" %>
